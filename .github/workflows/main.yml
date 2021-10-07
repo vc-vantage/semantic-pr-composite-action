@@ -9,4 +9,5 @@ jobs:
       - id: foo
         uses: vc-vantage/semantic-pr-composite-action@main
         with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           jira-ticket-prefix: 'VPM-'
