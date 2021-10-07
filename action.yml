@@ -1,6 +1,9 @@
 name: 'Semantic Pull Request'
-description: 'Ensure that Pull Request title matches the ViacomCBS Conventional Commits spec'
+description: 'Ensure that Pull Request title matches the Conventional Commits spec'
 inputs:
+  github-token:  
+    description: '`GITHUB_TOKEN` secret'
+    required: true
   jira-ticket-prefix:  
     description: 'JIRA ticket prefix (for example: "JIRA-")'
     required: true
@@ -11,7 +14,7 @@ runs:
       # https://github.com/amannn/action-semantic-pull-request/releases
       - uses: amannn/action-semantic-pull-request@v3.4.2
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ inputs.github-token }}
         with:
           # Configure additional validation for the subject based on a regex.
           # This example ensures the subject doesn't start with an uppercase character.

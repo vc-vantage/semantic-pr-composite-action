@@ -1,0 +1,18 @@
+on:
+  pull_request_target:
+    types:
+      - opened
+      - edited
+      - synchronize
+
+jobs:
+  semantic_pr_job:
+    runs-on: ubuntu-latest
+    name: Composite Action check
+    steps:
+      - uses: actions/checkout@v2
+      - id: foo
+        uses: vc-vantage/semantic-pr-composite-action@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          jira-ticket-prefix: 'JIRA-'
