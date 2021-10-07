@@ -4,21 +4,4 @@ This is [GitHub Action composite](https://docs.github.com/en/actions/creating-ac
 
 ## Usage example
 
-```yml
-name: "Lint PR"
-
-on:
-  pull_request_target:
-    types:
-      - opened
-      - edited
-      - synchronize
-
-jobs:
-  main:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: vc-vantage/semantic-pr-composite-action@v1
-        with:
-          jira-ticket-prefix: 'VPM-'
-```
+See [viacomcbs-semantic-pr-ci.yml workflow template](https://github.com/vc-vantage/.github/blob/main/workflow-templates/viacomcbs-semantic-pr-ci.yml).
