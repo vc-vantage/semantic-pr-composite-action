@@ -7,7 +7,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - id: foo
-        uses: vc-vantage/semantic-pr-composite-action@main
+        uses: vc-vantage/semantic-pr-composite-action@v0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           jira-ticket-prefix: 'VPM-'
