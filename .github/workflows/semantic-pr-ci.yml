@@ -1,0 +1,28 @@
+# This workflow check that your pull request follow the Conventional Commits spec.
+#
+# Use this workflow with "Semantic Release" release.
+#
+# For more information about Conventional Commits specification, refer to https://www.conventionalcommits.org/
+# For more information about Semantic Release, refer to https://semantic-release.gitbook.io/
+#
+name: PR Check
+
+on:
+  pull_request_target:
+    types:
+      - opened
+      - edited
+      - synchronize
+
+env:
+  TICKET_PREFIX: ${{ secrets.TICKET_PREFIX }}        # setup JIRA prefix for tickets - format "JIRA-"
+
+jobs:
+  pr_check:
+    name: PR Sematic Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: vc-vantage/semantic-pr-composite-action@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          jira-ticket-prefix: ${{ env.TICKET_PREFIX }}
